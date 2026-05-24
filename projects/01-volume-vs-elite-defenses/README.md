@@ -22,6 +22,11 @@ This project is built to flag that mismatch *before* a playoff series exposes it
 
 ## What the charts show
 
+### 0. Team defensive rating ranking — all 30 teams
+Every team in the 2025-26 NBA regular season, ranked #1 (best defense) to #30 (worst), by Defensive Rating (points allowed per 100 possessions). Bars are color-coded by tier: **deep blue** = Elite (top 5), **steel blue** = Good (6-15), **amber** = Average (16-20), **red** = Poor (21-30). A dashed line marks the league average. This is the classification that powers every other chart in the project — it shows exactly which teams count as "elite defenses" for the analysis.
+
+![Team DRtg Ranking](figures/team_drtg_ranking.png)
+
 ### 1. The headline drop
 For each star, two dots — their PPG against all opponents (left) and their PPG against the top-5 defenses (right) — connected by a line. **Red lines** are players who drop 3+ points. **Blue lines** are players who hold up.
 

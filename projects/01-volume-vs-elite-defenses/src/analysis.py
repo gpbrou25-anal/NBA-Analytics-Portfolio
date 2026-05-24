@@ -4,13 +4,14 @@ Project 01: Volume vs. Elite Defenses
 Quantifies how much each star scorer's PPG drops vs. top-5 DRtg defenses.
 
 Outputs:
-  - data/team_drtg.csv             (team defensive ratings + tiers)
-  - data/game_logs_joined.csv      (every player-game, with opponent tier attached)
-  - data/comparison.csv            (per-player: PPG overall vs PPG vs elite defenses)
-  - data/per_tier.csv              (per-player PPG/TS% in each opponent tier)
-  - figures/headline.png           (slope chart for the README)
-  - figures/tiers_heatmap.png      (player x tier heatmap, colored by diff vs own PPG)
-  - figures/scoring_vs_winning.png (PPG vs Win% against top-5 defenses)
+  - data/team_drtg.csv               (team defensive ratings + tiers)
+  - data/game_logs_joined.csv        (every player-game, with opponent tier attached)
+  - data/comparison.csv              (per-player: PPG overall vs PPG vs elite defenses)
+  - data/per_tier.csv                (per-player PPG/TS% in each opponent tier)
+  - figures/headline.png             (slope chart for the README)
+  - figures/tiers_heatmap.png        (player x tier heatmap, colored by diff vs own PPG)
+  - figures/scoring_vs_winning.png   (PPG vs Win% against top-5 defenses)
+  - figures/team_drtg_ranking.png    (all 30 teams ranked best-to-worst by DRtg)
 
 Run:
     python src/analysis.py
@@ -148,6 +149,146 @@ def build_comparison(games: pd.DataFrame) -> pd.DataFrame:
     stars[keep].to_csv(os.path.join(DATA_DIR, "comparison.csv"), index=False)
     print(f"      {len(stars)} qualifying star scorers -> data/comparison.csv")
     return stars
+
+
+def build_team_drtg_chart(drtg: pd.DataFrame) -> None:
+    """Horizontal bar chart: all 30 NBA teams ranked best-to-worst by DRtg.
+
+    Bars are color-coded by tier:
+      Elite (1-5)    → deep blue  (#1a5276)
+      Good (6-15)    → steel blue (#2e86c1)
+      Average (16-20)→ amber      (#d4ac0d)
+      Poor (21-30)   → brick red  (#c0392b)
+
+    A dashed vertical line marks the league average DRtg. Tier boundaries are
+    annotated on the right side so the reader can see where the cut-offs fall.
+    """
+    print("[*] Building team DRtg ranking chart (all 30 teams)...")
+
+    import numpy as np
+
+    TIER_COLORS = {
+        "Elite (1-5)":     "#1a5276",
+        "Good (6-15)":     "#2e86c1",
+        "Average (16-20)": "#d4ac0d",
+        "Poor (21-30)":    "#c0392b",
+    }
+
+    # Sort best → worst (rank 1 at the top)
+    df = drtg.sort_values("DRTG_RANK").reset_index(drop=True)
+
+    colors = df["TIER"].map(TIER_COLORS).fillna("#888888").tolist()
+
+    fig, ax = plt.subplots(figsize=(13, 12))
+
+    y_pos = np.arange(len(df))
+    bars = ax.barh(
+        y_pos,
+        df["DEF_RATING"],
+        color=colors,
+        edgecolor="white",
+        linewidth=0.5,
+        height=0.75,
+    )
+
+    # League-average DRtg reference line
+    avg_drtg = df["DEF_RATING"].mean()
+    ax.axvline(avg_drtg, linestyle="--", color="#555555", linewidth=1.2, alpha=0.7,
+               label=f"League avg: {avg_drtg:.1f}")
+
+    # Value labels at the end of each bar
+    x_pad = 0.08
+    for i, row in df.iterrows():
+        ax.text(
+            row["DEF_RATING"] + x_pad,
+            y_pos[i],
+            f"{row['DEF_RATING']:.1f}",
+            va="center",
+            ha="left",
+            fontsize=8.5,
+            color="#222222",
+        )
+
+    # Rank label inside each bar (left side)
+    for i, row in df.iterrows():
+        ax.text(
+            df["DEF_RATING"].min() - 0.3,
+            y_pos[i],
+            f"#{int(row['DRTG_RANK'])}",
+            va="center",
+            ha="right",
+            fontsize=7.5,
+            color="#555555",
+        )
+
+    # Tier boundary dividers + right-side tier labels
+    TIER_ORDER = ["Elite (1-5)", "Good (6-15)", "Average (16-20)", "Poor (21-30)"]
+    TIER_LABELS_SHORT = {
+        "Elite (1-5)":     "ELITE",
+        "Good (6-15)":     "GOOD",
+        "Average (16-20)": "AVERAGE",
+        "Poor (21-30)":    "POOR",
+    }
+
+    tier_boundaries = {}
+    for tier in TIER_ORDER:
+        idxs = df.index[df["TIER"] == tier].tolist()
+        if idxs:
+            tier_boundaries[tier] = (min(idxs), max(idxs))
+
+    x_max = df["DEF_RATING"].max() + 1.8
+    for i, tier in enumerate(TIER_ORDER):
+        if tier not in tier_boundaries:
+            continue
+        start, end = tier_boundaries[tier]
+        mid = (start + end) / 2
+        color = TIER_COLORS[tier]
+
+        # Horizontal divider below this tier (skip last tier)
+        if i < len(TIER_ORDER) - 1:
+            boundary_y = end + 0.5
+            ax.axhline(boundary_y, linestyle="-", color="#cccccc",
+                       linewidth=1.0, alpha=0.8)
+
+        # Tier label on the far right
+        ax.text(
+            x_max,
+            mid,
+            TIER_LABELS_SHORT[tier],
+            va="center",
+            ha="left",
+            fontsize=8,
+            color=color,
+            fontweight="bold",
+        )
+
+    # Axes
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(df["TEAM_NAME"], fontsize=9)
+    ax.invert_yaxis()  # rank 1 at the top
+
+    ax.set_xlabel("Defensive Rating (points allowed per 100 possessions — lower is better)",
+                  fontsize=10)
+    x_min = df["DEF_RATING"].min() - 1.5
+    ax.set_xlim(x_min, x_max + 0.8)
+
+    ax.set_title(
+        f"NBA Team Defensive Ratings — {SEASON}\n"
+        f"All 30 teams ranked best to worst (lower DRtg = better defense)",
+        fontsize=13,
+        loc="left",
+    )
+
+    ax.legend(fontsize=9, loc="lower right")
+    ax.grid(axis="x", linestyle=":", alpha=0.4)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    out_path = os.path.join(FIG_DIR, "team_drtg_ranking.png")
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=150, bbox_inches="tight")
+    plt.close()
+    print(f"      saved -> figures/team_drtg_ranking.png")
 
 
 def build_slope_chart(stars: pd.DataFrame) -> None:
@@ -481,6 +622,7 @@ def build_win_scatter(games: pd.DataFrame, stars: pd.DataFrame) -> None:
 
 def main() -> None:
     drtg = fetch_team_drtg(SEASON)
+    build_team_drtg_chart(drtg)          # <-- all-30-teams ranking chart
     time.sleep(1)  # be nice to the API
     logs = fetch_game_logs(SEASON)
     time.sleep(1)
@@ -503,6 +645,7 @@ def main() -> None:
     print(steady[["PLAYER_NAME", "PPG_ALL", "PPG_ELITE", "PPG_DROP"]].to_string(index=False))
 
     print("\nDone. Check:")
+    print("  figures/team_drtg_ranking.png   (all 30 teams ranked by DRtg)")
     print("  figures/headline.png            (slope chart)")
     print("  figures/tiers_heatmap.png       (player x tier heatmap)")
     print("  figures/scoring_vs_winning.png  (PPG vs Win% against top-5 defenses)")
