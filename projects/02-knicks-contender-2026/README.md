@@ -34,7 +34,7 @@ Winning 50 games doesn't make you a contender. Plenty of 50-win teams lose in ro
 
 ## Key Findings
 
-- **Clutch record: 18–2.** Last 5 minutes, margin ≤5 — the NBA's own definition. Held across all five Finals games.
+- **Clutch record: 18–2.** Last 5 minutes, margin ≤5 — the NBA's own definition. The most predictive number in the dataset for a Finals run.
 
 - **Brunson Dependency is real but manageable.** BDI of 39.6. Undefeated when Brunson scores 20+. KAT averages 26.8 PPG in games where Brunson is held under 15.
 
@@ -44,7 +44,7 @@ Winning 50 games doesn't make you a contender. Plenty of 50-win teams lose in ro
 
 - **Q3 is their signature — and their vulnerability.** Overall Q3 differential: +1.8. Against top-10 opponents: –0.4. A Year 1 system still calibrating. The clearest argument for why this team gets better from here.
 
-- **Road performance exceeded the baseline.** Documented road win rate: 55%. Finals result on the road in San Antonio: 2–0.
+- **Road performance exceeded the baseline.** Documented road win rate: 55%. Finals road record in San Antonio: 1–1 — the loss came in Game 3, directly reflecting the road vulnerability this project flagged as the team's biggest structural concern.
 
 - **Run-stopping at 64% by the 5th possession** is positive but created real late-game exposure in multiple Finals games.
 
@@ -110,27 +110,27 @@ Winning 50 games doesn't make you a contender. Plenty of 50-win teams lose in ro
 
 ## NBA Finals — All Five Games
 
-*The Knicks entered the 2026 NBA Finals against the San Antonio Spurs. Here is how the analytical indicators from this project tracked across the series.*
+*The Knicks entered the 2026 NBA Finals against the San Antonio Spurs as the higher seed. Games 1–2 at MSG, Games 3–4 in San Antonio, Game 5 back at MSG. Here is how the analytical indicators from this project tracked across the series.*
 
-**Game 1 — Knicks 105, Spurs 95**
+**Game 1 — Knicks 105, Spurs 95 · MSG**
 
-Down 14, the Knicks erased the entire deficit. Brunson finished with 30. KAT posted a double-double. Wembanyama shot 29% — the result of a prepared defensive scheme targeting his left-hand drive tendency with specific help rotation timing, not variance. The 18–2 clutch record and Q3 defensive structure both delivered when the game was on the line. Two of the project's core findings confirmed simultaneously.
+San Antonio came out aggressive and built a 14-point first-half lead. The Knicks didn't panic — they ran their half-court actions, got stops in Q3, and took the lead for good in the fourth. Brunson finished with 30 points on efficient shooting, controlling pace throughout. KAT posted a double-double; his rebounding advantage over San Antonio's interior was the size mismatch this project flagged all season. Wembanyama shot 29% from the field — not luck, the result of a defensive scheme built around his left-hand drive tendency and specific help rotation timing. The Q3 comeback and the clutch-time execution in Q4 confirmed two of the project's core indicators simultaneously: the third-quarter defensive identity and the 18–2 closing record aren't regular-season noise.
 
-**Game 2 — Knicks 105, Spurs 104**
+**Game 2 — Knicks 105, Spurs 104 · MSG**
 
-One possession. Wembanyama: 27 points, 9 rebounds, 4 blocks. Brunson: 20 points, 6 assists, 5 steals — those steals came from film preparation, reading San Antonio's pass-delivery tendencies before the ball moved. Bridges: 20 points. Towns: 21 and 13. Three players at 20+ in a one-possession Finals game is what the multi-star distribution model predicted. BDI at 39.6 said the system could absorb load. Game 2 was the hardest test of that claim, and all three delivered.
+The best game of the series. Wembanyama was extraordinary — 27 points, 9 rebounds, 4 blocks, the best individual performance of the Finals. The Knicks won anyway. That's the story. Brunson: 20 points, 6 assists, 5 steals — not gambling steals, positioning steals, the same read-the-passing-lane discipline that showed up in the defensive activity data all season. Bridges: 20 points. Towns: 21 and 13. Three players at 20+ in a one-possession game is the multi-star distribution model in action. The BDI analysis showed Brunson's reliance was real at 39.6, but also that Bridges and Towns were credible co-producers when the moment demanded. Game 2 was the hardest test of that claim. All three delivered.
 
-**Game 3 — Madison Square Garden**
+**Game 3 — Spurs Win · San Antonio**
 
-The home/away split data was the most directly applicable tool here: +11.0 net rating at MSG versus +2.0 on the road. Q1 execution — the project's primary game-driver indicator — is most consistent at home before opponents can fully deploy adjusted coverages. The critical variable was KAT's foul count in the opening five minutes. When KAT and Robinson are both in early foul trouble simultaneously, team ORTG drops measurably. Brown's preparation specifically addressed KAT's first-minute positioning against Wembanyama's post entries. At home, with the clutch record intact and Q1 operating normally, the Knicks held.
+The road vulnerability this project identified as the team's biggest structural concern showed up directly. San Antonio's crowd, full film review of the Knicks' rotation patterns, and Wembanyama's rapid adjustment from his 29% Game 1 performance combined to produce a different game entirely. Live-ball turnovers against his length created transition opportunities that didn't exist at MSG. The Q3 defensive identity — the Knicks' +1.8 differential that held all season — cracked in a hostile road environment against a top-10 opponent (the project's documented –0.4 Q3 differential against elite competition). Spurs won. The analytical framework's most clearly stated limitation was confirmed in the same game it mattered most.
 
-**Game 4 — Half-Court Grind**
+**Game 4 — Knicks Win · San Antonio, Series 3–1**
 
-By Game 4, transition advantages were eliminated on both sides. The game slowed to the pace Brown's system is built for: 95.5 possessions per 48 minutes, every possession equal weight. The turnover control stat — 31–4 when winning the turnover battle by 3 or more — is the most predictive single number in the dataset for this environment. Brunson's ball security kept the differential in the Knicks' favour through Q2 and Q4. KAT's rebounding edge compounded across the series. San Antonio can change coverages; they cannot change personnel. The bench production gap identified in the regular season widened as starter fatigue accumulated across four Finals games.
+The bounce-back pattern activated immediately. The project documented the Knicks going 2–0 in the game immediately following a postseason loss — a behavioral signal built on Brunson raising his decision rate and the bench producing its cleanest stretches in response games. Both teams had fully neutralized transition by Game 4. The series became what the pace data predicted it would become: 95.5 possessions per 48 minutes, every possession equal weight, half-court execution deciding everything. The turnover control stat — 31–4 when winning the TO battle by 3 or more — was the most predictive single number in the dataset for exactly this environment, and Brunson's ball security kept the differential in the Knicks' favor. KAT's rebounding edge compounded across four games; San Antonio adjusted coverages between games but could not adjust personnel.
 
-**Game 5 — Closing Out**
+**Game 5 — Knicks Win, NBA Champions · MSG**
 
-The resilience pattern — 2–0 after playoff losses, no consecutive losses in 2026 — and Brunson's 100% win rate when scoring 20+ are the two most direct statistical predictors for a clinching game. Bridges' defensive assignment was the most important tactical decision: his season-long profile shows he guards those possessions without fouling, without gambling, without fatigue-driven positioning errors. The opponent FT rate stays low because of positioning, not luck. The 18–2 clutch record entering Game 5 meant the Knicks had been in that final-five-minutes situation twenty times this year. The muscle memory of that record does not disappear because the setting is the NBA Finals.
+Back at MSG with a 3–1 series lead. Brunson's 100% win rate when scoring 20+ is the most direct statistical predictor for a clinching game, and he delivered again. Bridges was tasked with San Antonio's second-best offensive option and held him all night — no fouls, no gambles, no fatigue-driven positioning errors. That's what the opponent FT rate data described all season: disciplined positioning, not variance. The 18–2 clutch record meant the Knicks had already been in final-five-minutes, ≤5-point situations twenty times this year before the Finals even started. The muscle memory of that record doesn't disappear because the setting is June. The Knicks closed it out the same way they closed everything else.
 
 ---
 
@@ -152,7 +152,7 @@ The honest limitations: offensive rating gap against the top tier is real; Q3 vu
 | `data/master.csv` | Raw team stats dataset |
 | `data/contenders.csv` | Contender comparison dataset |
 | `figures/` | All 16 charts (PNG) |
-| `Knicks_2026_Finals_Report_v9.docx` | Full written analytical report |
+| `Knicks_2026_Finals_Report_v10.docx` | Full written analytical report |
 
 ---
 
