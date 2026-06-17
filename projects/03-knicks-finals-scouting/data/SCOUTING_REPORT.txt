@@ -1,0 +1,58 @@
+========================================================================
+  NBA FINALS SCOUTING REPORT -- NEW YORK KNICKS
+  Project 03 | GP Analytics | 2025-26
+  Head Coach: Mike Brown | Opponent: San Antonio Spurs
+========================================================================
+
+SERIES STATUS: NYK leads 1-0 | G1: NYK 105 SAS 95 (June 3 2026)
+-----------------------------------------------------------------
+
+GAME 1 FACTS (source: BBRef / ESPN / NBA.com):
+  Brunson: 30 pts (12-31 FG), 13 pts in Q4 -- clutch takeover
+  KAT: 18 pts, 12 reb -- double-double anchor
+  Wemby: 26 pts, 12 reb, 6-21 FG (28.6%), 6 TOV
+  NYK trailed by 14 in Q3 --> outscored SAS 29-19 in Q4
+  NYK ORTG in G1: 105 (season-low playoffs), 3PT%: 30.6%
+
+NYK STRENGTHS (real, sourced):
+  + Brunson-KAT P&R: KAT 62.5% on P&R feeds (ESPN)
+  + Point KAT delay series: ORTG 130.5 on 11-game streak (ESPN/Ringer)
+  + Mitchell Robinson OREB rate: 40% in playoffs (ESPN)
+  + Playoff 3PT%: 40.8% -- NBA best (StatMuse)
+  + Q4 clutch: outscored SAS 29-19 in G1 Q4 (BBRef)
+
+NYK PROBLEMS (real, sourced):
+  - ORTG drops vs elite D: 119.8 avg --> 105.0 in G1 (BBRef)
+  - 3PT variance: 40.8% avg vs 30.6% in G1 (BBRef/ESPN)
+  - Josh Hart liability: -23 margin vs CLE when on court (ESPN)
+  - KAT foul trouble risk vs Wemby two-man game (ESPN)
+  - Single creator: no true 3rd option when Brunson is contained
+
+SAS STRENGTHS (real, sourced):
+  + Wemby: WCF MVP -- 27.3 PPG, 10.9 REB, 2.7 BLK in WCF (NBA.com)
+  + Wemby transition/rolls: coach wants him in space (PFN)
+  + Role depth: Champagnie 6 3s G7, Castle 16 pts, Harper off bench
+  + Vassell: ~40% from 3 vs OKC -- punishes Wemby double-teams
+  + Youth poise: WCF G7 OT win -- maturity beyond their years (NBC)
+
+SAS PROBLEMS (real, sourced):
+  - Wemby TOV: 6 in G1, costly errors pattern (Yardbarker/PFN)
+  - Wemby FG% vs physicality: 28.6% in G1 (BBRef)
+  - Emotional reset needed after WCF high (Yahoo Sports)
+  - Robinson OREB threat: 40% rate -- must crash boards (ESPN)
+  - Finals inexperience: Castle 21, Harper 20, Wemby 22
+
+-----------------------------------------------------------------
+VERDICT: Closer series than expected. NYK won G1 on clutch despite
+season-low ORTG. Wemby is dangerous even on off nights (26 pts at 28.6%).
+Series turns on: can NYK force Wemby fouls early? Can SAS fix TOV?
+
+SOURCES:
+  BBRef G1:  basketball-reference.com/boxscores/202606030SAS.html
+  ESPN:      espn.com/nba/story/_/id/48906595
+  NBA.com:   nba.com/news/4-takeaways-knicks-spurs-game-1
+  StatMuse:  statmuse.com/nba/ask/knicks-point-stats-from-playoffs-2026
+  The Ringer: theringer.com/2026/06/03/nba/nba-finals-prediction-keys
+========================================================================
+  GP Analytics | June 2026
+========================================================================
