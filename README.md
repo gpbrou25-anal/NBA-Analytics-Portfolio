@@ -28,11 +28,25 @@ I looked at the 15 highest-volume scorers in the 2025-26 NBA regular season and 
 
 → [Read the full analysis](projects/01-volume-vs-elite-defenses/README.md) (slope chart, player × tier heatmap, scoring-vs-winning scatter, eight-player breakdown)
 
+### [02 — Are the New York Knicks Real NBA Finals Contenders in 2026?](projects/02-knicks-contender-2026/)
+*Winning 50 games doesn't make you a contender. Does the way the Knicks win match the profile of teams that actually go all the way?*
+
+I built a contender framework around the indicators that historically separate championship teams from good-but-not-enough teams — closing tight games, defending without fouling, winning on the road, holding up in Q3, not depending on one player in every big moment — and ran the Knicks through it.
+
+**The key findings:**
+
+- **Clutch record: 18–2.** Last 5 minutes, margin ≤5 — the NBA's own definition. The most important number in the dataset.
+- **Brunson Dependency Index (BDI): 39.6.** Custom metric: (Brunson PPG / Team PPG) × (USG% / 20) × 100. Real reliance — but manageable. KAT averages 26.8 PPG when Brunson is held under 15.
+- **KAT is a structural mismatch.** No opponent has a clean answer for his combination of size, positioning, and shooting range. That doesn't get solved between games in a series.
+- **Q3 is their signature — and their Year 1 vulnerability.** Overall Q3 differential: +1.8. Against top-10 opponents: –0.4. The clearest argument for why this team gets better from here.
+- **Mike Brown's system reaching the Finals in Year 1 is above expected trajectory.** Most new coaching systems see their largest jump in Year 2. This team arrived before that.
+
+→ [Read the full analysis](projects/02-knicks-contender-2026/README.md) (16 charts — efficiency ratings, clutch splits, radar comparison, Finals Games 1–5 breakdown, full written report)
+
 ---
 
 ## Coming next
 
-- **02 — Clutch-time scoring.** Who actually delivers in the last 5 minutes of close games? Crunch-time PPG vs. regular PPG, sorted by usage.
 - **03 — Injury return curves.** When a star comes back from a 15+ game absence, how many games before their efficiency returns to baseline?
 - **04 — Contract value (production per dollar).** Cross-reference cap hit with on-court impact. Who's the league's biggest bargain and the biggest overpay?
 
